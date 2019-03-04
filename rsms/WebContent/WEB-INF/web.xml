@@ -3,11 +3,20 @@
   
   <servlet>
   	<servlet-name>AdminLoginServlet</servlet-name>
-  	<servlet-class>admin.servlet.AdminLoginServlet</servlet-class>
+  	<servlet-class>servlet.AdminLoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<url-pattern>/admin/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminLoginVerifyServlet</servlet-name>
+  	<servlet-class>servlet.AdminLoginVerifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminLoginVerifyServlet</servlet-name>
+  	<url-pattern>/admin/login-verify</url-pattern>
   </servlet-mapping>
   
   

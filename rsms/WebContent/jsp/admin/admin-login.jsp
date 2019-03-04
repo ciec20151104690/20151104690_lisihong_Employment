@@ -83,8 +83,6 @@
 			<h1>招聘管理系统</h1>
 			<p>一个关于招聘的系统</p>
 		</div>
-		<!-- 轮播图 -->
-		<!-- 指示符 -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="left">
@@ -94,7 +92,6 @@
 							<li data-target="#demo" data-slide-to="1"></li>
 							<li data-target="#demo" data-slide-to="2"></li>
 						</ul>
-						<!-- 轮播图片 -->
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<img src="image/lunbo1.jpeg">
@@ -106,7 +103,6 @@
 								<img src="image/lunbo3.jpg">
 							</div>
 						</div>
-						<!-- 左右切换按钮 -->
 						<a href="#demo" class="carousel-control-prev" data-slide="prev">
 							<span class="carousel-control-prev-icon"></span>
 						</a> <a href="#demo" class="carousel-control-next" data-slide=next>
@@ -115,7 +111,6 @@
 					</div>
 				</div>
 				<div class="right">
-					<!-- 登陆窗口 -->
 					<div class="card">
 						<div class="card-header">用户登陆</div>
 						<div class="card-body">
@@ -124,15 +119,15 @@
 									style="border-collapse: separate; border-spacing: 0px 10px;">
 									<tr>
 										<td class="margin-top:10"><label>用户名：</label></td>
-										<td><input type="text" name="" class=""></td>
+										<td><input type="text" id="loginId" class=""></td>
 									</tr>
 									<tr>
 										<td><label for="pwd">密码:</label></td>
-										<td><input type="password" name=""></td>
+										<td><input type="password" id="password"></td>
 									</tr>
 								</table>
 								<div class="footer text-right">
-									<button type="submit" class="btn btn-primary">登陆</button>
+									<button onclick="login()" type="button" class="btn btn-primary">登陆</button>
 								</div>
 							</form>
 						</div>
@@ -141,5 +136,38 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function login() {
+			// 获得用户名和密码
+			var loginId = $("#loginId").val();
+			var password = $("#password").val();
+			if (loginId == "" || password == "") {
+				alert("用户名和密码不能为空");
+				return;
+			}
+			// ajax调用后台
+			$.ajax({
+				type : 'POST',
+				url : "admin/login-verify",
+				dataType : "text",
+				data : {
+					loginId : loginId,
+					password : password
+				},
+				success : function(data) {
+					if (data == "SUCCESS") {
+						window.location.href = "www.baidu.com";
+					} else {
+						$("#password").val("");
+						alert(data);
+					}
+				},
+				error : function(jqXHR) {
+					alert("系统异常，登录失败");
+				}
+
+			});
+		}
+	</script>
 </body>
 </html>
