@@ -19,6 +19,14 @@
   	<url-pattern>/admin/login-verify</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>AdminMainServlet</servlet-name>
+  	<servlet-class>servlet.AdminMainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminMainServlet</servlet-name>
+  	<url-pattern>/admin/main</url-pattern>
+  </servlet-mapping>
   
   
   <welcome-file-list>

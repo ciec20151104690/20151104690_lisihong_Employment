@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,11 +23,14 @@ public class AdminLoginVerifyServlet extends HttpServlet {
 		String loginId = req.getParameter("loginId");
 		String password = req.getParameter("password");
 		String result = "ERROR";
-		if (verify(loginId, password)) {
+		Map<String, String> admin = verify(loginId, password);
+		if (admin != null) {
 			// 登录成功
 			result = "SUCCESS";
 			// 放入到session中
-			req.getSession().setAttribute("admin_id", loginId);
+			req.getSession().setAttribute("admin_id", admin.get("id"));
+			req.getSession().setAttribute("admin_num", admin.get("login_num"));
+			req.getSession().setAttribute("admin_name", admin.get("login_name"));
 		} else {
 			result = "用户名或密码错误";
 		}
@@ -35,15 +40,19 @@ public class AdminLoginVerifyServlet extends HttpServlet {
         out.close();
 	}
 	
-	private boolean verify(String loginId, String password) {
+	private Map<String, String> verify(String loginId, String password) {
 		// 拼sql
 		StringBuilder sql = new StringBuilder();
-		sql.append("select count(*) from admin where login_num = '")
+		sql.append("select * from admin where login_num = '")
 			.append(loginId).append("' and password='")
 			.append(password).append("'");
 		
 		SqlHelper helper = new SqlHelper();
-		return helper.getCountBySql(sql.toString()) == 1 ? true : false;
+		List<Map<String, String>> list = helper.getDataBySql(sql.toString());
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 	

@@ -156,7 +156,7 @@
 				},
 				success : function(data) {
 					if (data == "SUCCESS") {
-						window.location.href = "www.baidu.com";
+						window.location.href = "admin/main";
 					} else {
 						$("#password").val("");
 						alert(data);
