@@ -47,7 +47,7 @@ body {
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0 text-white">
-			<span>管理员</span>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="alert('123')">退出</a>
+			<span>管理员</span>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="signOut()">退出</a>
 		</form>
 	</div>
 	</nav>
@@ -59,5 +59,12 @@ body {
 	<nav class="navbar fixed-bottom navbar-light bg-light">
 	<div class="text-center col-md-12">Copyright © 2019 招聘系统 rsms.com All Rights Reserved.</div>
 	</nav>
+	<script type="text/javascript">
+	function signOut() {
+		if(window.confirm("是否要退出？")) {
+			window.location.href = "admin/login-out";
+		}
+	}
+    </script>
 </body>
 </html>
