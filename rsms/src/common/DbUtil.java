@@ -1,13 +1,19 @@
 package common;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.*;
 
-public class SqlHelper {
-	
+public class DbUtil {
+
+    /**
+     * 通过sql及参数查count
+     * @param sql
+     * @param paramList
+     * @return
+     */
     public int getCountBySql(String sql) {
         Connection conn = null;
         try {
@@ -94,5 +100,5 @@ public class SqlHelper {
         }   
         return list;   
     }
-	
+    
 }

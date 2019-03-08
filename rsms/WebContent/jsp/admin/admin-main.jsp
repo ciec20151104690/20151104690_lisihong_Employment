@@ -33,27 +33,36 @@ body {
 .h90p {
 	height: 90%;
 }
+
+.bg-violet {
+	background: #663399;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-violet">
 	<div class="navbar-brand">求职招聘管理系统</div>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item active"><a class="nav-link" href="#">企业管理</a>
+			<li class="nav-item active"><a class="nav-link pointer">企业管理</a>
 			</li>
-			<li class="nav-item active"><a class="nav-link" href="#">人员管理</a>
+			<li class="nav-item active"><a class="nav-link pointer">人员管理</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0 text-white">
-			<span>管理员</span>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="signOut()">退出</a>
+			<span>管理员</span>&nbsp;&nbsp;&nbsp;&nbsp;<a class="pointer" onclick="signOut()">退出</a>
 		</form>
 	</div>
 	</nav>
 	<div class="container-fluid h90p">
 		<div class="row h100p" class="height: 100%;">
-			<iframe src="" width="100%" height="100%" frameborder="1"></iframe>
+			<iframe src="admin/business-list" width="100%" height="100%" frameborder="0"></iframe>
 		</div>
 	</div>
 	<nav class="navbar fixed-bottom navbar-light bg-light">
