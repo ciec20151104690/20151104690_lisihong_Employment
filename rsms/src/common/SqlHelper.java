@@ -56,22 +56,23 @@ public class SqlHelper {
         }
     }
     
-    public int executeBySql(String sql) {
+    public boolean executeBySql(String sql) {
         Connection conn = null;
         try {
             conn = JDBCUtil.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
-            return stmt.executeUpdate(sql);
+            int count = stmt.executeUpdate(sql);
+            return count >= 0 ? true : false;
         } catch (Exception e) {  
             e.printStackTrace();
-            return 0;
+            return false;
         } finally {
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return 0;
+                    return false;
                 }
             }
         }
