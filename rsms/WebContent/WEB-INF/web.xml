@@ -45,14 +45,6 @@
   	<servlet-name>AdminBusinessListServlet</servlet-name>
   	<url-pattern>/admin/business-list</url-pattern>
   </servlet-mapping>
-  <servlet>
-  	<servlet-name>AdminBusinessDeleteServlet</servlet-name>
-  	<servlet-class>servlet.AdminBusinessDeleteServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>AdminBusinessDeleteServlet</servlet-name>
-  	<url-pattern>/admin/business-delete</url-pattern>
-  </servlet-mapping>
   
   
   

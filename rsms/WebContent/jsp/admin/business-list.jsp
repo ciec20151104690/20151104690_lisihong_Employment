@@ -151,7 +151,7 @@ body {
 								<td>${arr.city}</td>
 								<td>${arr.scale}</td>
 								<td><a href="${arr.website}">${arr.website}</a></td>
-								<td><button onclick="delBusiness('${arr.id}')" type="button" class="btn btn-danger btn-sm">删除</button></td>
+								<td><button type="button" class="btn btn-danger btn-sm">删除</button></td>
 							</tr>
 							</c:forEach>
 						</c:if>
@@ -188,29 +188,6 @@ body {
 			var city = $("#city").val();
 			var curPage = $("#curPage").val();
 			window.location.href = "admin/business-list?name="+name+"&city="+city+"&curPage="+curPage;
-		}
-		
-		function delBusiness(obj) {
-			$.ajax({
-				type: "POST",
-				url: "admin/business-delete",
-				dataType:"text",
-				data: {
-					id: obj
-				},
-				success: function(data) {
-					if (data == "SUC") {
-						alert("删除成功！");
-						window.location.href = "admin/business-list";
-					} else {
-						alert("删除数据失败");
-					}
-				},
-				error: function(err) {
-					alert("系统异常，删除数据失败");
-				}
-				
-			});
 		}
 	</script>
 </body>
