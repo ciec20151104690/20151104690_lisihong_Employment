@@ -50,9 +50,9 @@ body {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item active"><a class="nav-link pointer">企业管理</a>
+			<li class="nav-item active"><a onclick="changeUrl('admin/business-list')" class="nav-link pointer">企业管理</a>
 			</li>
-			<li class="nav-item active"><a class="nav-link pointer">人员管理</a>
+			<li class="nav-item active"><a onclick="changeUrl('admin/user-list')" class="nav-link pointer">人员管理</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0 text-white">
@@ -62,7 +62,7 @@ body {
 	</nav>
 	<div class="container-fluid h90p">
 		<div class="row h100p" class="height: 100%;">
-			<iframe src="admin/business-list" width="100%" height="100%" frameborder="0"></iframe>
+			<iframe id="mainFrame" src="admin/business-list" width="100%" height="100%" frameborder="0"></iframe>
 		</div>
 	</div>
 	<nav class="navbar fixed-bottom navbar-light bg-light">
@@ -73,6 +73,10 @@ body {
 		if(window.confirm("是否要退出？")) {
 			window.location.href = "admin/login-out";
 		}
+	}
+	
+	function changeUrl(url) {
+		$("#mainFrame").attr("src", url);
 	}
     </script>
 </body>

@@ -54,6 +54,31 @@
   	<url-pattern>/admin/business-delete</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>AdminUserListServlet</servlet-name>
+  	<servlet-class>servlet.AdminUserListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminUserListServlet</servlet-name>
+  	<url-pattern>/admin/user-list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>AdminUserDeleteServlet</servlet-name>
+  	<servlet-class>servlet.AdminUserDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminUserDeleteServlet</servlet-name>
+  	<url-pattern>/admin/user-delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>AdminUserDetailServlet</servlet-name>
+  	<servlet-class>servlet.AdminUserDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminUserDetailServlet</servlet-name>
+  	<url-pattern>/admin/user-detail</url-pattern>
+  </servlet-mapping>
+  
   
   
   
