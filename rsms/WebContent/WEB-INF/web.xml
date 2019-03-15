@@ -81,6 +81,48 @@
   
   
   
+  <servlet>
+  	<servlet-name>BusinessLoginServlet</servlet-name>
+  	<servlet-class>servlet.BusinessLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessLoginServlet</servlet-name>
+  	<url-pattern>/business/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BusinessLoginVerifyServlet</servlet-name>
+  	<servlet-class>servlet.BusinessLoginVerifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessLoginVerifyServlet</servlet-name>
+  	<url-pattern>/business/login-verify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessMainServlet</servlet-name>
+  	<servlet-class>servlet.BusinessMainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessMainServlet</servlet-name>
+  	<url-pattern>/business/main</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessLoginOutServlet</servlet-name>
+  	<servlet-class>servlet.BusinessLoginOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessLoginOutServlet</servlet-name>
+  	<url-pattern>/business/login-out</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessSaveServlet</servlet-name>
+  	<servlet-class>servlet.BusinessSaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessSaveServlet</servlet-name>
+  	<url-pattern>/business/business-save</url-pattern>
+  </servlet-mapping>
+  
   
   <filter>  
     <filter-name>AdminLoginFilter</filter-name>  
@@ -89,6 +131,15 @@
     <filter-mapping>  
     <filter-name>AdminLoginFilter</filter-name>  
     <url-pattern>/admin/*</url-pattern>  
+  </filter-mapping>
+  
+  <filter>  
+    <filter-name>BusinessLoginFilter</filter-name>  
+    <filter-class>filter.BusinessLoginFilter</filter-class>  
+    </filter>  
+    <filter-mapping>  
+    <filter-name>BusinessLoginFilter</filter-name>  
+    <url-pattern>/business/*</url-pattern>  
   </filter-mapping>
   
   <welcome-file-list>

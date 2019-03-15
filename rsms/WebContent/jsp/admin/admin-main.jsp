@@ -56,7 +56,7 @@ body {
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0 text-white">
-			<span>管理员</span>&nbsp;&nbsp;&nbsp;&nbsp;<a class="pointer" onclick="signOut()">退出</a>
+			<span>企业：【<%=request.getSession().getAttribute("admin_name") %>】</span>&nbsp;&nbsp;&nbsp;&nbsp;<a class="pointer" onclick="signOut()">退出</a>
 		</form>
 	</div>
 	</nav>

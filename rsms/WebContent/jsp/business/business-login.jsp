@@ -9,7 +9,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理员登录页面</title>
+<title>企业登录页面</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 引入bootstrap -->
@@ -112,7 +112,7 @@
 				</div>
 				<div class="right">
 					<div class="card">
-						<div class="card-header">【管理员】登陆</div>
+						<div class="card-header">【企业】登陆</div>
 						<div class="card-body">
 							<form>
 								<table
@@ -148,7 +148,7 @@
 			// ajax调用后台
 			$.ajax({
 				type : 'POST',
-				url : "admin/login-verify",
+				url : "business/login-verify",
 				dataType : "text",
 				data : {
 					loginId : loginId,
@@ -156,7 +156,7 @@
 				},
 				success : function(data) {
 					if (data == "SUCCESS") {
-						window.location.href = "admin/main";
+						window.location.href = "business/main";
 					} else {
 						$("#password").val("");
 						alert(data);
