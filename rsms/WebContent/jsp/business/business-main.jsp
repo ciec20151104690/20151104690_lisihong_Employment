@@ -49,24 +49,24 @@ body {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item active"><a onclick="showModel()"
+			<li class="nav-item active"><a onclick="changeUrl('business/position-list')"
 				class="nav-link pointer">招聘岗位维护</a></li>
 			<li class="nav-item active"><a
-				onclick="changeUrl('admin/user-list')" class="nav-link pointer">求职信息维护</a>
+				onclick="changeUrl('business/position-list')" class="nav-link pointer">求职信息维护</a>
 			</li>
 			<li class="nav-item active"><a
 				onclick="changeUrl('admin/user-list')" class="nav-link pointer">历史信息查看</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0 text-white">
-			<span onclick="showModel()">企业：【<%=request.getSession().getAttribute("business_name")%>】
+			<span onclick="showModel()">企业：【${businessInfo.login_name}】
 			</span>&nbsp;&nbsp;&nbsp;&nbsp;<a class="pointer" onclick="signOut()">退出</a>
 		</form>
 	</div>
 	</nav>
 	<div class="container-fluid h90p">
 		<div class="row h100p" class="height: 100%;">
-			<iframe id="mainFrame" src="admin/business-list" width="100%"
+			<iframe id="mainFrame" src="business/position-list" width="100%"
 				height="100%" frameborder="0"></iframe>
 		</div>
 	</div>
@@ -164,8 +164,6 @@ body {
 				}
 				
 			});
-			
-			
 		}
 	</script>
 </body>

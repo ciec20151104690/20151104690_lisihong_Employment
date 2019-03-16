@@ -112,7 +112,7 @@
 				</div>
 				<div class="right">
 					<div class="card">
-						<div class="card-header">【管理员】登陆</div>
+						<div class="card-header">【管理员】登陆<button class="btn btn-success btn-sm float-right" onclick="changeRole()">切换</button></div>
 						<div class="card-body">
 							<form>
 								<table
@@ -167,6 +167,9 @@
 				}
 
 			});
+		}
+		function changeRole() {
+			window.location.href = "business/login";
 		}
 	</script>
 </body>

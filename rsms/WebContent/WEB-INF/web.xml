@@ -123,6 +123,31 @@
   	<url-pattern>/business/business-save</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>BusinessPositionListServlet</servlet-name>
+  	<servlet-class>servlet.BusinessPositionListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessPositionListServlet</servlet-name>
+  	<url-pattern>/business/position-list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessPositionDeleteServlet</servlet-name>
+  	<servlet-class>servlet.BusinessPositionDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessPositionDeleteServlet</servlet-name>
+  	<url-pattern>/business/position-delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessPositionSaveServlet</servlet-name>
+  	<servlet-class>servlet.BusinessPositionSaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessPositionSaveServlet</servlet-name>
+  	<url-pattern>/business/position-save</url-pattern>
+  </servlet-mapping>
+  
   
   <filter>  
     <filter-name>AdminLoginFilter</filter-name>  
