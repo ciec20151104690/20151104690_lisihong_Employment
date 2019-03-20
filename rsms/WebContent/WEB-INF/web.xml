@@ -149,6 +149,33 @@
   </servlet-mapping>
   
   
+  <servlet>
+  	<servlet-name>BusinessDeliveryListServlet</servlet-name>
+  	<servlet-class>servlet.BusinessDeliveryListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessDeliveryListServlet</servlet-name>
+  	<url-pattern>/business/delivery-list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessDeliveryChangeServlet</servlet-name>
+  	<servlet-class>servlet.BusinessDeliveryChangeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessDeliveryChangeServlet</servlet-name>
+  	<url-pattern>/business/delivery-change</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessUserDetailServlet</servlet-name>
+  	<servlet-class>servlet.BusinessUserDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessUserDetailServlet</servlet-name>
+  	<url-pattern>/business/user-detail</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <filter>  
     <filter-name>AdminLoginFilter</filter-name>  
     <filter-class>filter.AdminLoginFilter</filter-class>  

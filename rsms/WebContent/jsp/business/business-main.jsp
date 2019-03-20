@@ -52,7 +52,7 @@ body {
 			<li class="nav-item active"><a onclick="changeUrl('business/position-list')"
 				class="nav-link pointer">招聘岗位维护</a></li>
 			<li class="nav-item active"><a
-				onclick="changeUrl('business/position-list')" class="nav-link pointer">求职信息维护</a>
+				onclick="changeUrl('business/delivery-list')" class="nav-link pointer">求职信息维护</a>
 			</li>
 			<li class="nav-item active"><a
 				onclick="changeUrl('admin/user-list')" class="nav-link pointer">历史信息查看</a>
