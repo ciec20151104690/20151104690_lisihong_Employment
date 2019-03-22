@@ -173,6 +173,14 @@
   	<servlet-name>BusinessUserDetailServlet</servlet-name>
   	<url-pattern>/business/user-detail</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>BusinessDeliveryHistoryListServlet</servlet-name>
+  	<servlet-class>servlet.BusinessDeliveryHistoryListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BusinessDeliveryHistoryListServlet</servlet-name>
+  	<url-pattern>/business/delivery-history-list</url-pattern>
+  </servlet-mapping>
   
   
   

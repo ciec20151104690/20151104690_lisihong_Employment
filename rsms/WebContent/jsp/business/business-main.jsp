@@ -55,7 +55,7 @@ body {
 				onclick="changeUrl('business/delivery-list')" class="nav-link pointer">求职信息维护</a>
 			</li>
 			<li class="nav-item active"><a
-				onclick="changeUrl('admin/user-list')" class="nav-link pointer">历史信息查看</a>
+				onclick="changeUrl('business/delivery-history-list')" class="nav-link pointer">历史信息查看</a>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0 text-white">
