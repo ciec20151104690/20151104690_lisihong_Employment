@@ -13,24 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 import common.SqlHelper;
 
 
-public class BusinessLoginVerifyServlet extends HttpServlet {
+public class UserLoginVerifyServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String loginId = req.getParameter("loginId");
+		String loginId = req.getParameter("login_num");
 		String password = req.getParameter("password");
 		String result = "ERROR";
-		Map<String, String> admin = verify(loginId, password);
-		if (admin != null) {
+		Map<String, String> user = verify(loginId, password);
+		if (user != null) {
 			// 登录成功
-			result = "SUCCESS";
+			result = "SUC";
 			// 放入到session中
-			req.getSession().setAttribute("business_id", admin.get("id"));
-			req.getSession().setAttribute("business_num", admin.get("login_num"));
-			req.getSession().setAttribute("business_name", admin.get("login_name"));
+			req.getSession().setAttribute("user_id", user.get("id"));
+			req.getSession().setAttribute("user_num", user.get("login_num"));
+			req.getSession().setAttribute("user_name", user.get("login_name"));
 		} else {
 			result = "用户名或密码错误";
 		}
@@ -43,7 +43,7 @@ public class BusinessLoginVerifyServlet extends HttpServlet {
 	private Map<String, String> verify(String loginId, String password) {
 		// 拼sql
 		StringBuilder sql = new StringBuilder();
-		sql.append("select * from business where login_num = '")
+		sql.append("select * from user where login_num = '")
 			.append(loginId).append("' and password='")
 			.append(password).append("' and deleted = 0 ");
 		

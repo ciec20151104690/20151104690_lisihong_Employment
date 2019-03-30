@@ -182,6 +182,31 @@
   	<url-pattern>/business/delivery-history-list</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>UserMainServlet</servlet-name>
+  	<servlet-class>servlet.UserMainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserMainServlet</servlet-name>
+  	<url-pattern>/user/main</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UserLoginVerifyServlet</servlet-name>
+  	<servlet-class>servlet.UserLoginVerifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserLoginVerifyServlet</servlet-name>
+  	<url-pattern>/user/login-verify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UserSaveServlet</servlet-name>
+  	<servlet-class>servlet.UserSaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserSaveServlet</servlet-name>
+  	<url-pattern>/user/save</url-pattern>
+  </servlet-mapping>
+  
   
   
   <filter>  
@@ -201,6 +226,15 @@
     <filter-name>BusinessLoginFilter</filter-name>  
     <url-pattern>/business/*</url-pattern>  
   </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>UploadServlet</servlet-name>
+  	<servlet-class>servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UploadServlet</servlet-name>
+  	<url-pattern>/upload</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
