@@ -115,6 +115,38 @@ body {
 	border-radius: 4px;
 	vertical-align: middle;
 }
+
+.b-top {
+    border-top: 1px solid #CCC;
+}
+
+.b-bottom {
+    border-bottom: 1px solid #CCC;
+}
+
+.b-left {
+    border-left: 1px solid #CCC;
+}
+
+.b-right {
+    border-right: 1px solid #CCC;
+}
+
+.clear {
+    padding: 0 0;
+    margin: 0 0;
+    text-align: center;
+}
+
+.h60px {
+    height: 60px;
+    line-height: 60px;
+}
+
+.h120px {
+    height: 120px;
+    line-height: 120px;
+}
 </style>
 </head>
 <body>
@@ -133,13 +165,13 @@ body {
 			<div class="col-md-10 text-right">
 				<c:if test="${user_id == '' || user_id == null}" >
 					<span onclick="showLoginModel()">登录</span>
+					&nbsp;|&nbsp;<span onclick="showRegistoryModel()">注册</span>
 				</c:if>
 				<c:if test="${user_id != '' && user_id != null}" >
 					<span onclick="showLoginModel()">${user_name}</span>
+				&nbsp;|&nbsp;<span onclick="showDeliveryModel()">申请记录</span>
+				&nbsp;|&nbsp;<span onclick="showResumeModal()">个人简历</span>
 				</c:if>
-				&nbsp;|&nbsp;<span onclick="showRegistoryModel()">注册</span>
-				&nbsp;|&nbsp;<span>申请记录</span>
-				&nbsp;|&nbsp;<span>个人信息</span>
 			</div>
 		</div>
 	</div>
@@ -208,9 +240,18 @@ body {
 										style="width: 85%; float: left; overflow: hidden;">${arr.website}</div>
 								</div>
 								<div class="col-md-12" style="padding-top: 20px;">
-									<button
-										onclick="applyPosition('${arr.id}','${arr.business_id}')"
-										class="btn btn-success btn-block">申请该岗位</button>
+									<div class="row">
+										<div class="col-md-6">
+										<button
+											onclick="alert('${arr.description}')"
+											class="btn btn-danger btn-block">查看描述</button>
+										</div>
+										<div class="col-md-6">
+										<button
+											onclick="applyPosition('${arr.id}','${arr.business_id}')"
+											class="btn btn-success btn-block">申请岗位</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -352,12 +393,141 @@ body {
 			</div>
 		</div>
 	</div>
+	<div id="resumeModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  		<div class="modal-dialog modal-lg">
+    		<div class="modal-content" id="myModal-content">
+      			<div class="container-fluid" style="margin: 15px 0;">
+			        <div class="row clear">
+			            <div class="col-md-12 clear">
+			                <h1>简历</h1>
+			            </div>
+			            <div class="col-md-12 clear b-top" style="margin-top: 10px;">
+			                <div class="row clear">
+			                    <div class="col-md-9 clear">
+			                        <div class="col-md-12 clear">
+			                            <div class="row clear h60px b-bottom">
+			                                <div class="col-md-2 clear b-left">姓名</div>
+			                                <div id="re_login_name" class="col-md-4 clear b-left"></div>
+			                                <div class="col-md-2 clear b-left">性别</div>
+			                                <div id="re_sex" class="col-md-4 clear b-left b-right"></div>
+			                            </div>
+			                        </div>
+			                        <div class="col-md-12 clear">
+			                            <div class="row clear h60px b-bottom">
+			                                <div class="col-md-2 clear b-left">生日</div>
+			                                <div id="re_birthday" class="col-md-4 clear b-left"></div>
+			                                <div class="col-md-2 clear b-left">民族</div>
+			                                <div id="re_nation" class="col-md-4 clear b-left b-right"></div>
+			                            </div>
+			                        </div>
+			                        <div class="col-md-12 clear">
+			                            <div class="row clear h60px b-bottom">
+			                                <div class="col-md-2 clear b-left">籍贯</div>
+			                                <div id="re_native_place" class="col-md-4 clear b-left"></div>
+			                                <div class="col-md-2 clear b-left">学历</div>
+			                                <div id="re_education" class="col-md-4 clear b-left b-right"></div>
+			                            </div>
+			                        </div>
+			                    </div>
+			                    <div class="col-md-3 clear b-right b-bottom">
+			                        <img id="re_image" width="90%" height="180px" src="">
+			                    </div>
+			                </div>
+			            </div>
+			            <div class="col-md-12 clear">
+			                <div class="row clear h60px b-bottom">
+			                    <div class="col-md-2 clear b-left">毕业院校</div>
+			                    <div id="re_university" class="col-md-4 clear b-left"></div>
+			                    <div class="col-md-2 clear b-left">专业</div>
+			                    <div id="re_major" class="col-md-4 clear b-left b-right"></div>
+			                </div>
+			            </div>
+			            <div class="col-md-12 clear">
+			                <div class="row clear h60px b-bottom">
+			                    <div class="col-md-2 clear b-left">联系方式</div>
+			                    <div id="re_contack_num" class="col-md-4 clear b-left"></div>
+			                    <div class="col-md-2 clear b-left">地址</div>
+			                    <div id="re_address" class="col-md-4 clear b-left b-right"></div>
+			                </div>
+			            </div>
+			            <div class="col-md-12 clear">
+			                <div class="row clear h60px b-bottom">
+			                    <div class="col-md-2 clear b-left">婚姻状况</div>
+			                    <div id="re_marital_status" class="col-md-4 clear b-left"></div>
+			                    <div class="col-md-2 clear b-left">邮箱</div>
+			                    <div id="re_email" class="col-md-4 clear b-left b-right"></div>
+			                </div>
+			            </div>
+			            <div class="col-md-12 clear">
+			                <div class="row clear h120px b-bottom">
+			                    <div class="col-md-2 clear b-left">学校经历</div>
+			                    <div id="re_school_experience" class="col-md-10 clear b-left b-right">已婚</div>
+			                </div>
+			            </div>
+			            <div class="col-md-12 clear">
+			                <div class="row clear h120px b-bottom">
+			                    <div class="col-md-2 clear b-left">项目经历</div>
+			                    <div id="re_work_experience" class="col-md-10 clear b-left b-right"></div>
+			                </div>
+			            </div>
+			            <div class="col-md-12 clear">
+			                <div class="row clear h60px b-bottom">
+			                    <div class="col-md-2 clear b-left">个人评价</div>
+			                    <div id="re_self_evaluation" class="col-md-10 clear b-left b-right"></div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+    		</div>
+  		</div>
+	</div>
+	<div class="modal fade" id="deliveryModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<h5 class="modal-title">申请记录</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div id="deliveryModel-content" class="modal-body">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	<input type="hidden" value="${curPage}" id="curPage" />
 	<input type="hidden" value="${user_id}" id="user_id"/>
 	<script type="text/javascript">
 		function applyPosition(pId, bId) {
-			alert(pId);
-			alert(bId);
+			// 判断是否有人登录
+			var userId = $("#user_id").val();
+			if (userId == "") {
+				alert("还未登录，请先登录");
+				return;
+			}
+			$.ajax({
+				type: "POST",
+				url: "user/delivery-save",
+				dataType: "text",
+				data: {
+					userId: userId,
+					businessId: bId,
+					positionId: pId
+				},
+				success: function(data) {
+					if (data == "SUC") {
+						alert("申请岗位成功");
+					} else {
+						alert("申请岗位失败，请重新操作");
+					}
+				},
+				error: function() {
+					alert("系统异常，请重新操作");
+				}
+			});
 		}
 		
 		$(".jqueryPage").createPage({
@@ -470,9 +640,9 @@ body {
 			var image = $("#img").val();
 			
 			$.ajax({
-				type:"POST",
-				dataTyep:"text",
+				type: "POST",
 				url: "user/save",
+				dataType:"text",
 				data: {
 					loginNum: loginNum,
 					loginName: loginName,
@@ -494,18 +664,119 @@ body {
 					image: image
 				},
 				success: function(data) {
-					if (data == "ERROR") {
-						alert("保存失败，请重新上传");
+					if (data == "SUC") {
+						alert("注册成功！");
+						$('#registerModel').modal('hide');
+						
 					} else {
-						alert("注册成功");
+						alert("注册失败");
 					}
 				},
-				error: function() {
-					alert("系统异常，请重新操作");
+				error: function(err) {
+					alert("系统异常，删除数据失败");
+				}
+			});
+		}
+		
+		function showResumeModal() {
+			var userId = $("#user_id").val();
+			//通过ajax保存
+			$.ajax({
+				url : "user/user-detail",
+				type : "POST",
+				dataType : "text",
+				data : {
+					id : userId
+				},
+				success : function(data) {
+					var obj = eval("("+data+")"); 
+					// 获得数据json，并解析
+					$("#re_login_name").html(obj.login_name);
+					$("#re_sex").html(obj.sex == 1 ? "男" : "女");
+					$("#re_birthday").html(obj.birthday);
+					$("#re_nation").html(obj.nation);
+					$("#re_native_place").html(obj.native_place);
+					$("#re_education").html(obj.education);
+					$("#re_image").attr("src", "/upload/" + obj.image);
+					$("#re_university").html(obj.university);
+					$("#re_major").html(obj.major);
+					$("#re_contack_num").html(obj.contack_num);
+					$("#re_address").html(obj.address);
+					$("#re_marital_status").html(obj.marital_status == 1 ? "未婚" : "已婚");
+					$("#re_email").html(obj.email);
+					$("#re_school_experience").html(obj.school_experience);
+					$("#re_work_experience").html(obj.work_experience);
+					$("#re_self_evaluation").html(obj.self_evaluation);
+					
+					$('#resumeModal').modal('show');
+				},
+				error : function(res) {
+					alert("获取数据失败，请重新操作！");
+				}
+			});
+		}
+		
+		function showDeliveryModel() {
+			// 判断是否有人登录
+			var userId = $("#user_id").val();
+			if (userId == "") {
+				alert("还未登录，请先登录");
+				return;
+			}
+			//通过ajax保存
+			$.ajax({
+				url : "user/delivery-all-list",
+				type : "POST",
+				dataType : "text",
+				data : {
+					id : userId
+				},
+				success : function(data) {
+					var obj = eval("("+data+")"); 
+					// 获得数据json，并解析
+					var htmlStr = "<table class='table'>"
+					+ "<thead><tr>"
+					+ "<th scope='col'>序号</th>"
+					+ "<th scope='col'>公司</th>"
+					+ "<th scope='col'>岗位</th>"
+					+ "<th scope='col'>工作地</th>"
+					+ "<th scope='col'>薪资</th>"
+					+ "<th scope='col'>申请日期</th>"
+					+ "<th scope='col'>状态</th></tr></thead>"
+				    
+					for(var key in obj){
+						var values = obj[key]; 
+						htmlStr +="<tr><td>"+key+"</td>"
+							+"<td>"+values.login_name+"</td>"
+                            +"<td>"+values.title+"</td>"
+                            +"<td>"+values.address+"</td>"
+                            +"<td>"+values.salary+"</td>"
+                            +"<td>"+values.delivery_date.substring(0, 19)+"</td>"
+                            +"<td>"+convert(values.status)+"</td></tr>";
+                        
+                    };
+					htmlStr += "</table>";
+					$("#deliveryModel-content").html(htmlStr);
+					
+					$('#deliveryModel').modal('show');
+				},
+				error : function(res) {
+					alert("获取数据失败，请重新操作！");
 				}
 			});
 			
-	
+		}
+		
+		function convert(obj) {
+			if (obj == 0) {
+				return "审核中";
+			}
+			if (obj == 1) {
+				return "通过";
+			}
+			if (obj == 2) {
+				return "未通过";
+			}
 		}
 	</script>
 </body>

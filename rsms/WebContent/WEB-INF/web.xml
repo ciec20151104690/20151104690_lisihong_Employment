@@ -206,6 +206,31 @@
   	<servlet-name>UserSaveServlet</servlet-name>
   	<url-pattern>/user/save</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>UserDetailServlet</servlet-name>
+  	<servlet-class>servlet.UserDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserDetailServlet</servlet-name>
+  	<url-pattern>/user/user-detail</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UserDeliverySaveServlet</servlet-name>
+  	<servlet-class>servlet.UserDeliverySaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserDeliverySaveServlet</servlet-name>
+  	<url-pattern>/user/delivery-save</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UserDeliveryAllListServlet</servlet-name>
+  	<servlet-class>servlet.UserDeliveryAllListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserDeliveryAllListServlet</servlet-name>
+  	<url-pattern>/user/delivery-all-list</url-pattern>
+  </servlet-mapping>
   
   
   

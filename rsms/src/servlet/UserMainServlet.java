@@ -44,7 +44,7 @@ public class UserMainServlet extends HttpServlet {
 
 	private List<Map<String, String>> getPosition(int curPage) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("select p.id, p.business_id, p.title, p.address,p.salary,p.degree,p.experience, b.login_name, b.website ")
+		sql.append("select p.id, p.business_id, p.title, p.address,p.salary,p.degree,p.experience, b.login_name, b.website, p.description ")
 				.append("from position p left join business b on p.business_id = b.id ")
 				.append("where p.deleted = 0 ")
 				.append(" order by publish_date desc ");
